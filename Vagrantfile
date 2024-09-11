@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
         echo "192.168.66.12  ansible-host02" >> /etc/hosts
     SHELL
     
-    config.vm.define "ansible" do |ansible|
+    config.vm.define "ansible-master" do |ansible|
       ansible.vm.box = "bento/ubuntu-22.04"
       ansible.vm.hostname = "ansible-master"
       ansible.vm.network "private_network", ip: "192.168.66.10"
