@@ -1,0 +1,15 @@
+---
+- name: Chercher les fichiers log dans /var/log
+  hosts: all
+  become: yes
+  tasks:
+    - name: Chercher les fichiers .log dans /var/log
+      find:
+        paths: /var/log
+        patterns: "*.log"
+        recurse: yes
+      register: find_output
+
+    - name: Afficher output des fichiers trouvés
+      debug:
+        var: find_output
